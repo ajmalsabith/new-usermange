@@ -79,29 +79,29 @@ const login = async(req,res)=>{
     try {
 
         const email= await req.body.email
+        console.log(email+'=newemail');
         const password= await req.body.email
-        const user= await find({email:email})
-        
-
-        if (user) {
+        const userdata= await user.find({email:email})
+        console.log(userdata);
+        if (userdata.email==email) {
             if (user.password==password) {
                res.send({
                 message:'success'
                })
             }else{
                 res.status(400).send({
-                    message:'somthing wrong..!'
+                    message:'password wrong..!'
                 })
             }
             
         }else{
             res.status(400).send({
-                message:'somthing wrong..!'
+                message:'email wrong..!'
             })
         }
        
-    } catch (err) {
-        console.log(err.error.message);
+    } catch (error) {
+        console.log(error.message);
     }
 }
 

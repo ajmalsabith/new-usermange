@@ -1,6 +1,6 @@
 const mongoose= require('mongoose')
 
-const newuser= mongoose.Schema({
+const newuser=new mongoose.Schema({
 
     name:{
         type:String,
