@@ -60,7 +60,7 @@ const home=async(req,res)=>{
     try {
 
         const userdata= await user.find({})
-        
+        console.log(userdata);
         if (userdata) {
             res.send({
                 data:userdata
@@ -79,12 +79,11 @@ const login = async(req,res)=>{
     try {
 
         const email= await req.body.email
-        console.log(email+'=newemail');
-        const password= await req.body.email
-        const userdata= await user.find({email:email})
-        console.log(userdata);
-        if (userdata.email==email) {
-            if (user.password==password) {
+        
+        const password= await req.body.password
+        const userdata= await user.findOne({email:email})
+        if (userdata) {
+            if (userdata.password==password) {
                res.send({
                 message:'success'
                })
@@ -105,8 +104,37 @@ const login = async(req,res)=>{
     }
 }
 
+
+const deletefu = async(req,res)=>{
+    try {
+
+        const id= await req.params.id
+        
+        console.log(id+'delteid');
+        const userdata= await user.deleteOne({_id:id})
+        if (userdata) {
+           
+               res.send({
+                message:'success'
+               })
+           
+            
+        }else{
+            res.status(400).send({
+                message:' wrong..!'
+            })
+        }
+       
+    } catch (error) {
+        console.log(error.message);
+    }
+}
+
+
+
 module.exports={
     register,
     home,
-    login
+    login,
+    deletefu
 }

@@ -6,7 +6,8 @@ const userRoute= express()
 
 userRoute.post('/register',usercontroller.register)
 userRoute.post('/login',usercontroller.login)
-userRoute.post('/home',usercontroller.home)
+userRoute.get('/home',usercontroller.home)
+userRoute.delete('/delete/:id',usercontroller.deletefu)
 
 
 

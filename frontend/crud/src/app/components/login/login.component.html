@@ -1,10 +1,14 @@
-<div class="d-flex">
+<div class="container" style="height: 100vh;">
 
-    <form [formGroup]="loginform" (submit)="submit()">
+    <div class="d-flex justify-condent-center align-items-center">
+
+    <form class="" [formGroup]="loginform" (submit)="submit()">
         <input class="new mt-3" type="email" placeholder="enter your email" formControlName="email"><br>
         <input class="new mt-3" type="password" placeholder="enter your password" formControlName="password"><br>
         <button [disabled]="loginform.invalid" class="btn btn-success">submit</button>
         <span style="color: red;">{{message}}</span>
-       </form>
+     
+    </form>
+</div>
 
 </div>
