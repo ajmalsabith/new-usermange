@@ -3,6 +3,9 @@
 <h1>{{message}}</h1>
 <div class="container">
 
+    
+    <input type="text" placeholder="search..." [(ngModel)]="searchtext">
+
     <div class="">
         
         <table>
@@ -20,7 +23,7 @@
                 
             </thead>
             <tbody class="newclass">
-                <tr  *ngFor="let item of userdata">
+                <tr  *ngFor="let item of userdata| sarch:searchtext">
                    <td>
                     <div class="me">
                         {{item.name}}  

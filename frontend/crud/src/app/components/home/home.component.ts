@@ -24,7 +24,7 @@ export class HomeComponent implements OnInit{
   }
 
 
- 
+  searchtext=''
   deletefu(id:any){
     this.http.delete('http://localhost:4000/delete/'+id).subscribe((res:any)=>{
       this.message=res.message

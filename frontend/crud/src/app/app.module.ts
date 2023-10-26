@@ -8,13 +8,15 @@ import { RegisterComponent } from './components/register/register.component';
 import { ReactiveFormsModule,FormsModule} from '@angular/forms'
 import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './components/home/home.component';
+import { SarchPipe } from './pipes/sarch.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegisterComponent,
-    HomeComponent
+    HomeComponent,
+    SarchPipe
   ],
   imports: [
     BrowserModule,
